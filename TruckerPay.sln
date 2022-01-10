@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TruckerPayRedBadge", "TruckerPayRedBadge\TruckerPayRedBadge.csproj", "{086A56EB-6312-474A-A313-C096570EECB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TruckerPay.Data", "TruckerPay.Data\TruckerPay.Data.csproj", "{9225B7AE-58F1-49DF-AF79-433AB52AFE0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TruckerPay.Models", "TruckerPay.Models\TruckerPay.Models.csproj", "{EA5EA52A-CA12-4826-849D-98ABFE27CDD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TruckerPay.Service", "TruckerPay.Service\TruckerPay.Service.csproj", "{7DE845E5-F707-447A-8296-0EABBB8BF1D9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{086A56EB-6312-474A-A313-C096570EECB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{086A56EB-6312-474A-A313-C096570EECB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{086A56EB-6312-474A-A313-C096570EECB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{086A56EB-6312-474A-A313-C096570EECB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9225B7AE-58F1-49DF-AF79-433AB52AFE0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9225B7AE-58F1-49DF-AF79-433AB52AFE0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9225B7AE-58F1-49DF-AF79-433AB52AFE0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9225B7AE-58F1-49DF-AF79-433AB52AFE0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA5EA52A-CA12-4826-849D-98ABFE27CDD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA5EA52A-CA12-4826-849D-98ABFE27CDD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA5EA52A-CA12-4826-849D-98ABFE27CDD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA5EA52A-CA12-4826-849D-98ABFE27CDD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DE845E5-F707-447A-8296-0EABBB8BF1D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DE845E5-F707-447A-8296-0EABBB8BF1D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DE845E5-F707-447A-8296-0EABBB8BF1D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DE845E5-F707-447A-8296-0EABBB8BF1D9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4661BCDA-9033-48D4-A4AA-37D7D69881A7}
+	EndGlobalSection
+EndGlobal
