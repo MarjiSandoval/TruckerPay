@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using TruckerPay.Data;
 
 namespace TruckerPayRedBadge.Models
 {
@@ -29,5 +30,6 @@ namespace TruckerPayRedBadge.Models
         {
             return new ApplicationDbContext();
         }
+        public DbSet<Load> Loads { get; set; }
     }
 }

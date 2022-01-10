@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,7 +42,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LoadPay\LoadPayCreate.cs" />
+    <Compile Include="LoadPay\LoadPayDetails.cs" />
+    <Compile Include="LoadPay\LoadPayEdit.cs" />
+    <Compile Include="LoadPay\LoadPayListItem.cs" />
+    <Compile Include="Load\LoadCreate.cs" />
+    <Compile Include="Load\LoadDetails.cs" />
+    <Compile Include="Load\LoadEdit.cs" />
+    <Compile Include="Load\LoadListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WeeklyPay\WeeklyPayCreate.cs" />
+    <Compile Include="WeeklyPay\WeeklyPayDetail.cs" />
+    <Compile Include="WeeklyPay\WeeklyPayEdit.cs" />
+    <Compile Include="WeeklyPay\WeeklyPayListItem.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

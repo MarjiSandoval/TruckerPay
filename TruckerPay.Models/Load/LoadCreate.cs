@@ -1,34 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TruckerPay.Data
+namespace TruckerPay.Models.Load
 {
-    public class Load
+    public class LoadCreate
     {
         [Key]
         public int LoadId { get; set; }
         [Required]
-        public string ShipperLocation { get; set; }
-        [Required]
-        public string ReceiverLocation { get; set; }
-        [Required]
-        public DateTime PickUpAppt { get; set; }
-        [Required]
-        public DateTime DeliveryAppt { get; set; }
-        [Required]
         public string ShipperName { get; set; }
+        public string ShipperLocation { get; set; }
+        public int ShipperPhone { get; set; }
         [Required]
         public string ReceiverName { get; set; }
-        public int ShipperPhone { get; set; }
+        public string ReceiverLocation { get; set; }
         public int ReceiverPhone { get; set; }
         [Required]
         public int EmptyMiles { get; set; }
         [Required]
         public int LoadedMiles { get; set; }
+
     }
 }

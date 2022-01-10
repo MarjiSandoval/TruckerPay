@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TruckerPay.Data
+namespace TruckerPay.Models.WeeklyPay
 {
-    public class WeeklyPay
+    public class WeeklyPayCreate
     {
-        [Key]
+        [ForeignKey(nameof(LoadPay))]
+        public DateTime SentToPayRoll  { get; set; }
         public DateTime PayDate { get; set; }
         [Required]
         public DateTime StartPayWeek { get; set; }

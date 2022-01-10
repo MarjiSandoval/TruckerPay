@@ -6,23 +6,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TruckerPay.Data
+namespace TruckerPay.Models.LoadPay
 {
-    public class LoadPay
+    public class LoadPayEdit
     {
         [Key]
         public int LoadPayId { get; set; }
         [ForeignKey(nameof(Load))]
         public int LoadId { get; set; }
-        public virtual Load Loads { get; set; }
         [Required]
         public decimal PerDiemRate { get; set; }
         [Required]
-        public decimal PayRateLoaded { get; set; }
+        public decimal PayRateLoadedMiles { get; set; }
         [Required]
-        public decimal PayRateEmpty { get; set; }
-        [Required]
-        public DateTime SentToPayroll { get; set; }
+        public decimal PayRateEmptyMiles { get; set; }
         [Required]
         public decimal TotalPay { get; set; }
     }

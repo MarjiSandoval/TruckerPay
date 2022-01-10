@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TruckerPay.Data
+namespace TruckerPay.Models.WeeklyPay
 {
-    public class WeeklyPay
+    public class WeeklyPayListItem
     {
         [Key]
         public DateTime PayDate { get; set; }
