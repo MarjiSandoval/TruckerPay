@@ -23,7 +23,7 @@ namespace TruckerPay.Service
             var entity =
                 new Load()
                 {
-                    //userId= _userId,
+                    OwnerId= _userId,
                     ShipperName = model.ShipperName,
                     ShipperLocation = model.ShipperLocation,
                     ShipperPhone = model.ShipperPhone,
@@ -80,6 +80,38 @@ namespace TruckerPay.Service
                     };
             }
         }
+        public bool UpdateLoad(LoadEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Loads
+                        .Single(e => e.LoadId == model.LoadId && e.OwnerId == _userId);
+                entity.LoadId = model.LoadId;
+                entity.ShipperName = model.ShipperName;
+                entity.ShipperLocation = model.ShipperLocation;
+                entity.ShipperPhone = model.ShipperPhone;
+                entity.ReceiverName = model.ReceiverName;
+                entity.ReceiverLocation = model.ReceiverLocation;
+                entity.ReceiverPhone = model.ReceiverPhone;
+                entity.EmptyMiles = model.EmptyMiles;
+                entity.LoadedMiles = model.LoadedMiles;
 
+                return ctx.SaveChanges() == 1;
+            }
+        }
+        public bool DeleteLoad (int LoadId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Loads
+                        .Single(e => e.LoadId == LoadId && e.OwnerId == _userId);
+                ctx.Loads.Remove(entity);
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
