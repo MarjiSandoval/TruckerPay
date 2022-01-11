@@ -97,5 +97,7 @@ namespace TruckerPayRedBadge.Controllers
             TempData["SaveResult"] = "Your Load was deleted";
             return RedirectToAction("Index");
         }
+
+        
     }
 }
