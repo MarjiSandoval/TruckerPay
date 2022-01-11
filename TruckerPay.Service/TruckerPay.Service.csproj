@@ -66,10 +66,6 @@
       <Project>{EA5EA52A-CA12-4826-849D-98ABFE27CDD8}</Project>
       <Name>TruckerPay.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TruckerPayRedBadge\TruckerPayRedBadge.csproj">
-      <Project>{086A56EB-6312-474A-A313-C096570EECB7}</Project>
-      <Name>TruckerPayRedBadge</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

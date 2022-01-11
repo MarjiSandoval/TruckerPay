@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.ApplicationServices;
 using System.Web.Mvc;
 using TruckerPay.Models.Load;
+using TruckerPay.Service;
 
 namespace TruckerPayRedBadge.Controllers
 {
@@ -33,7 +34,7 @@ namespace TruckerPayRedBadge.Controllers
 
             var service = CreateLoadService();
 
-            if (service.LoadCreate(model))
+            if (service.CreateLoad(model))
             {
                 TempData["SaveResult"] = "Your Load was created.";
                 return RedirectToAction("Index");
@@ -57,13 +58,7 @@ namespace TruckerPayRedBadge.Controllers
                 {
                     LoadId = detail.LoadId,
                     ShipperName = detail.ShipperName,
-                    ShipperLocation = detail.ShipperLocation,
-                    ShipperPhone = detail.ShipperPhone,
                     ReceiverName = detail.ReceiverName,
-                    ReceiverLocation = detail.ReceiverLoaction,
-                    ReceiverPhone = detail.ReceiverPhone,
-                    EmptyMiles = detail.EmptyMiles,
-                    LoadedMiles = detail.LoadedMiles
                 };
             return View(model);
         }

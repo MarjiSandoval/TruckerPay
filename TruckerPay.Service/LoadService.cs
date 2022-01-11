@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TruckerPay.Data;
 using TruckerPay.Models.Load;
-using TruckerPayRedBadge.Models;
+
 
 namespace TruckerPay.Service
 {
