@@ -169,6 +169,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoadController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -243,6 +244,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Load\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -261,6 +263,10 @@
     <ProjectReference Include="..\TruckerPay.Data\TruckerPay.Data.csproj">
       <Project>{9225B7AE-58F1-49DF-AF79-433AB52AFE0D}</Project>
       <Name>TruckerPay.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TruckerPay.Models\TruckerPay.Models.csproj">
+      <Project>{ea5ea52a-ca12-4826-849d-98abfe27cdd8}</Project>
+      <Name>TruckerPay.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
