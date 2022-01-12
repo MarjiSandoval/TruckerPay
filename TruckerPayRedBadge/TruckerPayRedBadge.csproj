@@ -170,6 +170,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoadController.cs" />
+    <Compile Include="Controllers\LoadPayController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -177,6 +178,18 @@
     <Compile Include="Migrations\202201102158301_First migration.cs" />
     <Compile Include="Migrations\202201102158301_First migration.Designer.cs">
       <DependentUpon>202201102158301_First migration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201111832359_Added ownerId.cs" />
+    <Compile Include="Migrations\202201111832359_Added ownerId.Designer.cs">
+      <DependentUpon>202201111832359_Added ownerId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201111847289_added appt dates.cs" />
+    <Compile Include="Migrations\202201111847289_added appt dates.Designer.cs">
+      <DependentUpon>202201111847289_added appt dates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201111913064_update.cs" />
+    <Compile Include="Migrations\202201111913064_update.Designer.cs">
+      <DependentUpon>202201111913064_update.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -219,7 +232,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -240,12 +252,16 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Load\DeleteLoad.cshtml" />
+    <Content Include="Views\Load\Delete.cshtml" />
     <Content Include="Views\Load\Edit.cshtml" />
     <Content Include="Views\Load\Create.cshtml" />
+    <Content Include="Views\Load\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Load\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\LoadPay\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -277,6 +293,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202201102158301_First migration.resx">
       <DependentUpon>202201102158301_First migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201111832359_Added ownerId.resx">
+      <DependentUpon>202201111832359_Added ownerId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201111847289_added appt dates.resx">
+      <DependentUpon>202201111847289_added appt dates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201111913064_update.resx">
+      <DependentUpon>202201111913064_update.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

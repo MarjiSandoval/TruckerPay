@@ -11,6 +11,7 @@ namespace TruckerPay.Data
     {
         [Key]
         public DateTime PayDate { get; set; }
+        public Guid OwnerId { get; set; }
         [Required]
         public DateTime StartPayWeek { get; set; }
         [Required]

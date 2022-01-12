@@ -19,7 +19,7 @@ namespace TruckerPayRedBadge.Controllers
             var service = new LoadService(userId);
             var model = service.GetLoads();
 
-            return View();
+            return View(model);
         }
         // GET
         public ActionResult Create()
@@ -48,6 +48,13 @@ namespace TruckerPayRedBadge.Controllers
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new LoadService(userId);
             return service;
+        }
+        public ActionResult Details(int id)
+        {
+            var svc = CreateLoadService();
+            var model = svc.GetLoadById(id);
+
+            return View(model);
         }
         public ActionResult Edit(int id)
         {
@@ -82,13 +89,21 @@ namespace TruckerPayRedBadge.Controllers
             ModelState.AddModelError("", "Your Load could not be updated.");
             return View();
         }
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateLoadService();
+            var model = svc.GetLoadById(id);
+
+            return View(model);
+        }
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteLoad(int id)
+        public ActionResult DeletePost(int id)
         {
             var service = CreateLoadService();
-            service.DeleteLoad(id);
+            service.Delete(id);
             TempData["SaveResult"] = "Your Load was deleted";
             return RedirectToAction("Index");
         }

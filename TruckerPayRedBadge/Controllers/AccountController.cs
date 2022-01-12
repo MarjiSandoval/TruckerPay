@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using TruckerPay.Data;
 using TruckerPayRedBadge.Models;
 
 namespace TruckerPayRedBadge.Controllers

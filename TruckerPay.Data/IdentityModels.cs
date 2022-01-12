@@ -31,5 +31,7 @@ namespace TruckerPay.Data
             return new ApplicationDbContext();
         }
         public DbSet<Load> Loads { get; set; }
+        public DbSet<LoadPay> LoadPays { get; set; }
+        public DbSet<WeeklyPay> WeeklyPays { get; set; }
     }
 }

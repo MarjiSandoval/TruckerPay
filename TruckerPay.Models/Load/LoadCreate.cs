@@ -16,6 +16,10 @@ namespace TruckerPay.Models.Load
         public string ShipperLocation { get; set; }
         public int ShipperPhone { get; set; }
         [Required]
+        public DateTime PickUpAppt { get; set; }
+        [Required]
+        public DateTime DeliveryAppt { get; set; }
+        [Required]
         public string ReceiverName { get; set; }
         public string ReceiverLocation { get; set; }
         public int ReceiverPhone { get; set; }

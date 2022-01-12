@@ -12,9 +12,11 @@ namespace TruckerPay.Data
     {
         [Key]
         public int LoadPayId { get; set; }
+        public Guid OwnerId { get; set; }
         [ForeignKey(nameof(Load))]
+        [Required]
         public int LoadId { get; set; }
-        public virtual Load Loads { get; set; }
+        public virtual Load Load { get; set; }
         [Required]
         public decimal PerDiemRate { get; set; }
         [Required]
@@ -25,5 +27,7 @@ namespace TruckerPay.Data
         public DateTime SentToPayroll { get; set; }
         [Required]
         public decimal TotalPay { get; set; }
+        public virtual WeeklyPay Weekly { get; set; }
+
     }
 }

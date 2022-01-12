@@ -27,6 +27,8 @@ namespace TruckerPay.Service
                     ShipperName = model.ShipperName,
                     ShipperLocation = model.ShipperLocation,
                     ShipperPhone = model.ShipperPhone,
+                    PickUpAppt = model.PickUpAppt,
+                    DeliveryAppt = model.DeliveryAppt,
                     ReceiverName = model.ReceiverName,
                     ReceiverLocation = model.ReceiverLocation,
                     ReceiverPhone = model.ReceiverPhone,
@@ -101,7 +103,7 @@ namespace TruckerPay.Service
                 return ctx.SaveChanges() == 1;
             }
         }
-        public bool DeleteLoad (int LoadId)
+        public bool Delete (int LoadId)
         {
             using (var ctx = new ApplicationDbContext())
             {
