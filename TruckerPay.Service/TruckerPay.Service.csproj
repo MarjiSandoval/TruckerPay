@@ -57,6 +57,7 @@
     <Compile Include="LoadPayService.cs" />
     <Compile Include="LoadService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WeeklyPayService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TruckerPay.Data\TruckerPay.Data.csproj">

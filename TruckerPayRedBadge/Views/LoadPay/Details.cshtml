@@ -1,0 +1,42 @@
+﻿@model TruckerPay.Models.LoadPay.LoadPayDetails
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LoadPayDetails</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PerDiemRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PerDiemRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PayRateLoadedMiles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PayRateLoadedMiles)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PayRateEmptyMiles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PayRateEmptyMiles)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LoadId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
