@@ -11,6 +11,7 @@ namespace TruckerPay.Models.WeeklyPay
     {
         [Key]
         public DateTime PayDate { get; set; }
+        public int LoadId { get; set; }
         [Required]
         public int EmptyMiles { get; set; }
         [Required]

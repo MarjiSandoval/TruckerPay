@@ -82,6 +82,24 @@ namespace TruckerPay.Service
                 return query.ToArray();
             }
         }
+        public WeeklyPayDetail GetWeeklyPayById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .WeeklyPays
+                        .Single(e => e.LoadId == id && e.OwnerId == _userId);
+                return
+                    new WeeklyPayDetail
+                    {
+                        PayDate = entity.PayDate,
+                        EmptyMiles = entity.EmptyMiles,
+                        LoadedMiles = entity.LoadedMiles,
+                        TotalPay = entity.TotalPay
+                    };
+            }
+        }
         public bool UpdateWeeklyPay(WeeklyPayEdit model)
         {
             using (var ctx = new ApplicationDbContext())
