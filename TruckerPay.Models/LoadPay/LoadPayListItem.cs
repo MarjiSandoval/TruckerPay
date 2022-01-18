@@ -19,5 +19,7 @@ namespace TruckerPay.Models.LoadPay
         public decimal PayRateEmpty { get; set; }
         [Required]
         public decimal TotalPay { get; set; }
+        [Required]
+        public int TotalMiles { get; set; }
     }
 }

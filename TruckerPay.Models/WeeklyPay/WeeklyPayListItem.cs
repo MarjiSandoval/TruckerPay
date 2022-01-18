@@ -9,41 +9,11 @@ namespace TruckerPay.Models.WeeklyPay
 {
     public class WeeklyPayListItem
     {
-        [Key]
+       
         public DateTime PayDate { get; set; }
-        [Required]
         public DateTime StartPayWeek { get; set; }
-        [Required]
         public DateTime EndPayWeek { get; set; }
-        [Required]
-        public int EmptyMiles { get; set; }
-        [Required]
-        public int LoadedMiles { get; set; }
-        [Required]
-        public decimal PerDiemRate { get; set; }
-        [Required]
-        public decimal PayRateLoaded { get; set; }
-        [Required]
-        public decimal PayRateEmpty { get; set; }
-        [Required]
-        public decimal HealthInsuranceCost { get; set; }
-        [Required]
-        public decimal DentalInsuranceCost { get; set; }
-        [Required]
-        public decimal LifeInsuranceCost { get; set; }
-        [Required]
-        public decimal LayOverPay { get; set; }
-        [Required]
-        public decimal AdvancesTaken { get; set; }
-        [Required]
-        public decimal BreakdownPay { get; set; }
-        [Required]
-        public decimal DetentionPay { get; set; }
-        [Required]
-        public decimal Bonuses { get; set; }
-        [Required]
-        public decimal TaxRate { get; set; }
-        [Required]
         public decimal TotalPay { get; set; }
+        public int TotalMiles { get; set; }
     }
 }

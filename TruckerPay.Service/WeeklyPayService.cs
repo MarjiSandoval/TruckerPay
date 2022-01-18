@@ -22,15 +22,9 @@ namespace TruckerPay.Service
                 new WeeklyPay()
                 {
                     OwnerId = _userId,
-                    SentToPayRoll = model.SentToPayRoll,
                     StartPayWeek = model.StartPayWeek,
                     PayDate = model.PayDate,
                     EndPayWeek = model.EndPayWeek,
-                    EmptyMiles = model.EmptyMiles,
-                    LoadedMiles = model.LoadedMiles,
-                    PerDiemRate = model.PerDiemRate,
-                    PayRateEmpty = model.PayRateEmpty,
-                    PayRateLoaded = model.PayRateLoaded,
                     HealthInsuranceCost = model.HealthInsuranceCost,
                     DentalInsuranceCost = model.DentalInsuranceCost,
                     LifeInsuranceCost = model.LifeInsuranceCost,
@@ -39,8 +33,7 @@ namespace TruckerPay.Service
                     BreakdownPay = model.BreakdownPay,
                     DetentionPay = model.DetentionPay,
                     Bonuses = model.Bonuses,
-                    TaxRate = model.TaxRate,
-                    TotalPay = model.TotalPay
+                    TaxRate = model.TaxRate
                 };
             using (var ctx = new ApplicationDbContext())
             {
@@ -55,7 +48,7 @@ namespace TruckerPay.Service
                 var query =
                     ctx
                         .WeeklyPays
-                        .Where(e => e.OwnerId == _userId)
+                        .Where(e => e.OwnerId == _userId).AsEnumerable()
                         .Select(
                         e =>
                             new WeeklyPayListItem
@@ -63,24 +56,77 @@ namespace TruckerPay.Service
                                 PayDate = e.PayDate,
                                 StartPayWeek = e.StartPayWeek,
                                 EndPayWeek = e.EndPayWeek,
-                                EmptyMiles = e.EmptyMiles,
-                                LoadedMiles = e.LoadedMiles,
-                                PerDiemRate = e.PerDiemRate,
-                                PayRateLoaded = e.PayRateLoaded,
-                                PayRateEmpty = e.PayRateEmpty,
-                                HealthInsuranceCost = e.HealthInsuranceCost,
-                                DentalInsuranceCost = e.DentalInsuranceCost,
-                                LifeInsuranceCost = e.LifeInsuranceCost,
-                                LayOverPay = e.LayOverPay,
-                                AdvancesTaken = e.AdvancesTaken,
-                                BreakdownPay = e.BreakdownPay,
-                                DetentionPay = e.DetentionPay,
-                                Bonuses = e.Bonuses,
-                                TaxRate = e.TaxRate,
-                                TotalPay = e.TotalPay
+                                TotalPay = TotalPay(e)
                             });
                 return query.ToArray();
             }
+        }
+        public decimal TotalPay(WeeklyPay weeklyPay)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                List<LoadPay> pays = ctx.LoadPays.Where(l => l.SentToPayroll <= weeklyPay.EndPayWeek && l.SentToPayroll >= weeklyPay.StartPayWeek).ToList();
+                //calculate weeklypay methods
+                decimal totalEmptyPay = 0;
+                decimal totalLoadedPay = 0;
+                decimal perDiemTotal = 0;
+                foreach (var item in pays)
+                {
+                    totalEmptyPay += item.Load.EmptyMiles * item.PayRateEmpty;
+                    totalLoadedPay += item.Load.LoadedMiles * item.PayRateLoaded;
+
+
+                    int totalEmptyMiles = 0;
+                    int totalLoadedMiles = 0;
+
+                    totalEmptyMiles += item.Load.EmptyMiles;
+                    totalLoadedMiles += item.Load.LoadedMiles;
+                    int totalMiles = totalEmptyMiles + totalLoadedMiles;
+                    perDiemTotal += totalMiles * item.PerDiemRate;
+
+                }
+                decimal grossPay = totalEmptyPay + totalLoadedPay;
+                decimal insurance = weeklyPay.DentalInsuranceCost + weeklyPay.HealthInsuranceCost;
+                decimal lessInsurance = grossPay - insurance;
+                decimal rawPay = lessInsurance + perDiemTotal;
+                decimal lessTaxes = rawPay * weeklyPay.TaxRate / 100;
+                decimal netPay = rawPay - lessTaxes;
+                decimal totalPay = netPay - weeklyPay.LifeInsuranceCost - weeklyPay.AdvancesTaken + weeklyPay.Bonuses + weeklyPay.BreakdownPay + weeklyPay.DetentionPay + weeklyPay.LayOverPay;
+                return totalPay;
+            }
+
+        }
+        public int EmptyMiles(WeeklyPay weeklyPay)
+            {
+
+            using (var ctx = new ApplicationDbContext())
+            {
+                List<LoadPay> pays = ctx.LoadPays.Where(l => l.SentToPayroll <= weeklyPay.EndPayWeek && l.SentToPayroll >= weeklyPay.StartPayWeek).ToList();
+                // total empty miles
+                int totalMtMiles = 0;
+                foreach (var item in pays)
+                {
+                 totalMtMiles += item.Load.EmptyMiles;
+                }
+                return totalMtMiles;
+
+            }
+
+        }
+        public int LoadedMiles(WeeklyPay weeklyPay)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                List<LoadPay> pays = ctx.LoadPays.Where(l => l.SentToPayroll <= weeklyPay.EndPayWeek && l.SentToPayroll >= weeklyPay.StartPayWeek).ToList();
+                // total empty miles
+                int totalLoadedMiles = 0;
+                foreach (var item in pays)
+                {
+                    totalLoadedMiles += item.Load.LoadedMiles;
+                }
+                return totalLoadedMiles;
+            }
+
         }
         public WeeklyPayDetail GetWeeklyPayById(int id)
         {
@@ -89,17 +135,19 @@ namespace TruckerPay.Service
                 var entity =
                     ctx
                         .WeeklyPays
-                        .Single(e => e.LoadId == id && e.OwnerId == _userId);
+                        .Single(e => e.WeeklyPayId == id && e.OwnerId == _userId);
                 return
                     new WeeklyPayDetail
                     {
                         PayDate = entity.PayDate,
-                        EmptyMiles = entity.EmptyMiles,
-                        LoadedMiles = entity.LoadedMiles,
-                        TotalPay = entity.TotalPay
+                        EmptyMiles = EmptyMiles(entity),
+                        LoadedMiles = LoadedMiles(entity),
+                        TotalPay = TotalPay(entity)
                     };
+
             }
         }
+       
         public bool UpdateWeeklyPay(WeeklyPayEdit model)
         {
             using (var ctx = new ApplicationDbContext())
@@ -107,24 +155,23 @@ namespace TruckerPay.Service
                 var entity =
                     ctx
                         .WeeklyPays
-                        .Single(e => e.LoadId == model.LoadId && e.OwnerId == _userId);
+                        .Single(e => e.WeeklyPayId == model.WeeklyPayId && e.OwnerId == _userId);
                 entity.PayDate = model.PayDate;
                 entity.StartPayWeek = model.StartPayWeek;
                 entity.EndPayWeek = model.EndPayWeek;
-                entity.EmptyMiles = model.EmptyMiles;
-                entity.LoadedMiles = model.LoadedMiles;
+
 
                 return ctx.SaveChanges() == 1;
             }
         }
-        public bool Delete(int LoadId)
+        public bool Delete(int WeeklyPayId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .WeeklyPays
-                        .Single(e => e.LoadId == LoadId && e.OwnerId == _userId);
+                        .Single(e => e.WeeklyPayId == WeeklyPayId && e.OwnerId == _userId);
                 ctx.WeeklyPays.Remove(entity);
                 return ctx.SaveChanges() == 1;
             }

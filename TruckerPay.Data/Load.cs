@@ -14,6 +14,8 @@ namespace TruckerPay.Data
         public int LoadId { get; set; }
         public Guid OwnerId { get; set; }
         [Required]
+        public long LoadNumber { get; set; }
+        [Required]
         public string ShipperLocation { get; set; }
         [Required]
         public string ReceiverLocation { get; set; }

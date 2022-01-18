@@ -26,7 +26,7 @@ namespace TruckerPay.Service
                        PerDiemRate = model.PerDiemRate,
                        PayRateLoaded = model.PayRateLoadedMiles,
                        PayRateEmpty = model.PayRateEmptyMiles,
-                       SentToPayroll = model.SentToPayroll
+                       SentToPayroll = model.SentToPayroll,
                    };
             using (var ctx = new ApplicationDbContext())
             {
@@ -34,6 +34,16 @@ namespace TruckerPay.Service
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        public int TotalMiles(LoadPay loadpay)
+        {
+            return loadpay.Load.EmptyMiles + loadpay.Load.LoadedMiles;
+        }
+        public decimal TotalPay(LoadPay loadpay)
+        {
+            return (loadpay.Load.LoadedMiles * loadpay.PayRateLoaded) + (loadpay.PayRateEmpty * loadpay.Load.EmptyMiles) + (loadpay.PerDiemRate * TotalMiles(loadpay));
+        }
+
         public IEnumerable<LoadPayListItem> GetLoadPay()
         {
             using (var ctx = new ApplicationDbContext())
@@ -41,7 +51,7 @@ namespace TruckerPay.Service
                 var query =
                     ctx
                         .LoadPays
-                        .Where(e => e.OwnerId == _userId)
+                        .Where(e => e.OwnerId == _userId).AsEnumerable()
                         .Select(
                         e =>
                             new LoadPayListItem
@@ -50,10 +60,11 @@ namespace TruckerPay.Service
                                 PerDiemRate = e.PerDiemRate,
                                 PayRateLoaded = e.PayRateLoaded,
                                 PayRateEmpty = e.PayRateEmpty,
-                                TotalPay = e.TotalPay
+                                TotalPay = TotalPay(e)
                             });
                 return query.ToArray();
             }
+            
         }
         public LoadPayDetails GetLoadPayById(int id)
         {
@@ -69,7 +80,9 @@ namespace TruckerPay.Service
                         LoadId = entity.LoadId,
                         PerDiemRate = entity.PerDiemRate,
                         PayRateLoadedMiles = entity.PayRateLoaded,
-                        PayRateEmptyMiles = entity.PayRateLoaded
+                        PayRateEmptyMiles = entity.PayRateLoaded,
+                        EmptyMiles = entity.Load.EmptyMiles,
+                        LoadedMiles = entity.Load.LoadedMiles
                     };
             }
         }
@@ -80,13 +93,13 @@ namespace TruckerPay.Service
                 var entity =
                     ctx
                         .LoadPays
-                        .Single(e => e.LoadId == model.LoadId && e.OwnerId == _userId);
+                        .Single(e => e.LoadPayId == model.LoadPayId && e.OwnerId == _userId);
                 entity.LoadPayId = model.LoadPayId;
-                entity.LoadPayId = model.LoadId;
+                entity.LoadId = model.LoadId;
                 entity.PerDiemRate = model.PerDiemRate;
                 entity.PayRateLoaded = model.PayRateLoadedMiles;
                 entity.PayRateEmpty = model.PayRateEmptyMiles;
-                entity.TotalPay = model.TotalPay;
+               
 
                 return ctx.SaveChanges() == 1;
             }

@@ -10,25 +10,13 @@ namespace TruckerPay.Data
     public class WeeklyPay
     {
         [Key]
+        public int WeeklyPayId { get; set; }
         public DateTime PayDate { get; set; }
         public Guid OwnerId { get; set; }
-        public int LoadId { get; set; }
-        [Required]
-        public DateTime SentToPayRoll { get; set; }
         [Required]
         public DateTime StartPayWeek { get; set; }
         [Required]
         public DateTime EndPayWeek { get; set; }
-        [Required]
-        public int EmptyMiles { get; set; }
-        [Required]
-        public int LoadedMiles { get; set; }
-        [Required]
-        public decimal PerDiemRate { get; set; }
-        [Required]
-        public decimal PayRateLoaded { get; set; }
-        [Required]
-        public decimal PayRateEmpty { get; set; }
         [Required]
         public decimal HealthInsuranceCost { get; set; }
         [Required]
@@ -47,7 +35,6 @@ namespace TruckerPay.Data
         public decimal Bonuses { get; set; }
         [Required]
         public decimal TaxRate { get; set; }
-        [Required]
-        public decimal TotalPay { get; set; }
+        
     }
 }

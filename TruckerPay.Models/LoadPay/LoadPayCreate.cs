@@ -21,5 +21,8 @@ namespace TruckerPay.Models.LoadPay
         [Required]
         public decimal PayRateEmptyMiles { get; set; }
         public DateTime SentToPayroll { get; set; }
+       
+        
+
     }
 }
