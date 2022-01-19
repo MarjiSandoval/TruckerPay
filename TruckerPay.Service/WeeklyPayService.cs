@@ -53,6 +53,7 @@ namespace TruckerPay.Service
                         e =>
                             new WeeklyPayListItem
                             {
+                                WeeklyPayId = e.WeeklyPayId,
                                 PayDate = e.PayDate,
                                 StartPayWeek = e.StartPayWeek,
                                 EndPayWeek = e.EndPayWeek,
@@ -139,6 +140,19 @@ namespace TruckerPay.Service
                 return
                     new WeeklyPayDetail
                     {
+                        WeeklyPayId = entity.WeeklyPayId,
+                        StartPayWeek = entity.StartPayWeek,
+                        EndPayWeek = entity.EndPayWeek,
+                        HealthInsuranceCost = entity.HealthInsuranceCost,
+                        DentalInsuranceCost = entity.DentalInsuranceCost,
+                        LifeInsuranceCost = entity.LifeInsuranceCost,
+                        LayOverPay = entity.LayOverPay,
+                        AdvancesTaken = entity.AdvancesTaken,
+                        BreakdownPay = entity.BreakdownPay,
+                        DetentionPay = entity.DetentionPay,
+                        Bonuses = entity.Bonuses,
+                        TaxRate = entity.TaxRate,
+                        TotalMiles = entity.TotalMiles,
                         PayDate = entity.PayDate,
                         EmptyMiles = EmptyMiles(entity),
                         LoadedMiles = LoadedMiles(entity),

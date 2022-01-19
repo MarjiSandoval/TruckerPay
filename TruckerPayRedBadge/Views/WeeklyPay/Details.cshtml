@@ -1,0 +1,164 @@
+﻿@model TruckerPay.Models.WeeklyPay.WeeklyPayDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>WeeklyPayDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.WeeklyPayId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WeeklyPayId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PayDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PayDate)
+        </dd>
+
+        
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartPayWeek)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartPayWeek)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndPayWeek)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndPayWeek)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HealthInsuranceCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HealthInsuranceCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DentalInsuranceCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DentalInsuranceCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LifeInsuranceCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LifeInsuranceCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LayOverPay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LayOverPay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdvancesTaken)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdvancesTaken)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BreakdownPay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BreakdownPay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DetentionPay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DetentionPay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bonuses)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bonuses)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaxRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaxRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoadId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoadId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmptyMiles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmptyMiles)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoadedMiles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoadedMiles)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalPay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalPay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalMiles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalMiles)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

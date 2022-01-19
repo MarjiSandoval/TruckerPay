@@ -11,7 +11,7 @@ namespace TruckerPay.Models.WeeklyPay
     {
         public int WeeklyPayId { get; set; }
         public DateTime PayDate { get; set; }
-        public Guid OwnerId { get; set; }
+        
         public DateTime StartPayWeek { get; set; }
         public DateTime EndPayWeek { get; set; }
         public decimal HealthInsuranceCost { get; set; }

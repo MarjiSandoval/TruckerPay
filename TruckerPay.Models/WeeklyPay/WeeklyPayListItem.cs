@@ -9,7 +9,7 @@ namespace TruckerPay.Models.WeeklyPay
 {
     public class WeeklyPayListItem
     {
-       
+        public int WeeklyPayId { get; set; }
         public DateTime PayDate { get; set; }
         public DateTime StartPayWeek { get; set; }
         public DateTime EndPayWeek { get; set; }

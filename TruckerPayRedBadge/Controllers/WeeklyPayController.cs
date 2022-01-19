@@ -9,6 +9,7 @@ using TruckerPay.Service;
 
 namespace TruckerPayRedBadge.Controllers
 {
+    [Authorize]
     public class WeeklyPayController : Controller
     {
         // GET: WeeklyPay
@@ -17,7 +18,7 @@ namespace TruckerPayRedBadge.Controllers
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new WeeklyPayService(userId);
             var model = service.GetWeeklyPay();
-            return View();
+            return View(model);
         }
         // GET
         public ActionResult Create()
@@ -61,9 +62,8 @@ namespace TruckerPayRedBadge.Controllers
                 new WeeklyPayEdit
                 {
                     PayDate = detail.PayDate,
-                    LoadId = detail.LoadId,
-                    EmptyMiles = detail.EmptyMiles,
-                    LoadedMiles = detail.LoadedMiles
+                    WeeklyPayId = detail.WeeklyPayId,
+                    
                 };
             return View(model);
         }
@@ -73,7 +73,7 @@ namespace TruckerPayRedBadge.Controllers
         {
             if (!ModelState.IsValid) return View(model);
 
-            if (model.LoadId != id)
+            if (model.WeeklyPayId != id)
             {
                 ModelState.AddModelError("", "Id mismatch.");
                 return View(model);

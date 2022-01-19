@@ -57,9 +57,17 @@
     <Compile Include="IdentityModels.cs" />
     <Compile Include="LoadPay.cs" />
     <Compile Include="Load.cs" />
-    <Compile Include="Migrations\202201181535470_first.cs" />
-    <Compile Include="Migrations\202201181535470_first.Designer.cs">
-      <DependentUpon>202201181535470_first.cs</DependentUpon>
+    <Compile Include="Migrations\202201191507221_first.cs" />
+    <Compile Include="Migrations\202201191507221_first.Designer.cs">
+      <DependentUpon>202201191507221_first.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201191635572_added property.cs" />
+    <Compile Include="Migrations\202201191635572_added property.Designer.cs">
+      <DependentUpon>202201191635572_added property.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201191900290_updated .cs" />
+    <Compile Include="Migrations\202201191900290_updated .Designer.cs">
+      <DependentUpon>202201191900290_updated .cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,8 +78,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202201181535470_first.resx">
-      <DependentUpon>202201181535470_first.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202201191507221_first.resx">
+      <DependentUpon>202201191507221_first.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201191635572_added property.resx">
+      <DependentUpon>202201191635572_added property.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201191900290_updated .resx">
+      <DependentUpon>202201191900290_updated .cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

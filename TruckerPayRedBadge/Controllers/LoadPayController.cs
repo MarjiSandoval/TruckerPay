@@ -9,6 +9,7 @@ using TruckerPay.Service;
 
 namespace TruckerPayRedBadge.Controllers
 {
+    [Authorize]
     public class LoadPayController : Controller
     {
         // GET: LoadPay

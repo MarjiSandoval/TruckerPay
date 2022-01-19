@@ -11,7 +11,6 @@ namespace TruckerPay.Models.WeeklyPay
     public class WeeklyPayCreate
     {
         public DateTime PayDate { get; set; }
-        public Guid OwnerId { get; set; }
         [Required]
         public DateTime StartPayWeek { get; set; }
         [Required]

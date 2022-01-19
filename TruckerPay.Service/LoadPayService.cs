@@ -51,7 +51,7 @@ namespace TruckerPay.Service
                 var query =
                     ctx
                         .LoadPays
-                        .Where(e => e.OwnerId == _userId).AsEnumerable()
+                        .Where(e => e.OwnerId == _userId).ToList()
                         .Select(
                         e =>
                             new LoadPayListItem
@@ -60,7 +60,8 @@ namespace TruckerPay.Service
                                 PerDiemRate = e.PerDiemRate,
                                 PayRateLoaded = e.PayRateLoaded,
                                 PayRateEmpty = e.PayRateEmpty,
-                                TotalPay = TotalPay(e)
+                                TotalPay = TotalPay(e),
+                                TotalMiles = TotalMiles(e)
                             });
                 return query.ToArray();
             }
@@ -73,7 +74,7 @@ namespace TruckerPay.Service
                 var entity =
                     ctx
                         .LoadPays
-                        .Single(e => e.LoadId == id && e.OwnerId == _userId);
+                        .Single(e => e.LoadPayId == id && e.OwnerId == _userId);
                 return
                     new LoadPayDetails
                     {
@@ -99,19 +100,20 @@ namespace TruckerPay.Service
                 entity.PerDiemRate = model.PerDiemRate;
                 entity.PayRateLoaded = model.PayRateLoadedMiles;
                 entity.PayRateEmpty = model.PayRateEmptyMiles;
+                entity.SentToPayroll = model.SentToPayroll;
                
 
                 return ctx.SaveChanges() == 1;
             }
         }
-        public bool Delete(int LoadId)
+        public bool Delete(int LoadPayId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .LoadPays
-                        .Single(e => e.LoadId == LoadId && e.OwnerId == _userId);
+                        .Single(e => e.LoadPayId == LoadPayId && e.OwnerId == _userId);
                 ctx.LoadPays.Remove(entity);
                 return ctx.SaveChanges() == 1;
             }

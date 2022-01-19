@@ -259,15 +259,19 @@
     <Content Include="Views\Load\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Load\Details.cshtml" />
-    <Content Include="Views\LoadPay\Index.cshtml" />
     <Content Include="Views\LoadPay\Details.cshtml" />
     <Content Include="Views\LoadPay\Edit.cshtml" />
-    <Content Include="Views\LoadPay\Delete.cshtml" />
     <Content Include="Views\LoadPay\Create.cshtml" />
+    <Content Include="Views\LoadPay\Index.cshtml" />
+    <Content Include="Views\LoadPay\Delete.cshtml" />
+    <Content Include="Views\WeeklyPay\Create.cshtml" />
+    <Content Include="Views\WeeklyPay\Details.cshtml" />
+    <Content Include="Views\WeeklyPay\Edit.cshtml" />
+    <Content Include="Views\WeeklyPay\Delete.cshtml" />
+    <Content Include="Views\WeeklyPay\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\WeeklyPay\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

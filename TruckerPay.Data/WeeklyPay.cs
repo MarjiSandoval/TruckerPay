@@ -35,6 +35,7 @@ namespace TruckerPay.Data
         public decimal Bonuses { get; set; }
         [Required]
         public decimal TaxRate { get; set; }
-        
+        public int TotalMiles { get; set; }
+
     }
 }

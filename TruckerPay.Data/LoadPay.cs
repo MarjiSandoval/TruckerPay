@@ -25,8 +25,5 @@ namespace TruckerPay.Data
         public decimal PayRateEmpty { get; set; }
         [Required]
         public DateTime SentToPayroll { get; set; }
-       
-        public virtual WeeklyPay Weekly { get; set; }
-
     }
 }
