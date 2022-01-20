@@ -69,6 +69,10 @@
     <Compile Include="Migrations\202201191900290_updated .Designer.cs">
       <DependentUpon>202201191900290_updated .cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201201657549_changed phone numbers string.cs" />
+    <Compile Include="Migrations\202201201657549_changed phone numbers string.Designer.cs">
+      <DependentUpon>202201201657549_changed phone numbers string.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WeeklyPay.cs" />
@@ -86,6 +90,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201191900290_updated .resx">
       <DependentUpon>202201191900290_updated .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201201657549_changed phone numbers string.resx">
+      <DependentUpon>202201201657549_changed phone numbers string.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

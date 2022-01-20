@@ -27,8 +27,8 @@ namespace TruckerPay.Data
         public string ShipperName { get; set; }
         [Required]
         public string ReceiverName { get; set; }
-        public long ShipperPhone { get; set; }
-        public long ReceiverPhone { get; set; }
+        public string ShipperPhone { get; set; }
+        public string ReceiverPhone { get; set; }
         [Required]
         public int EmptyMiles { get; set; }
         [Required]
