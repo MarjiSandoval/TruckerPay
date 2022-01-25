@@ -4,26 +4,26 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2 style="color: white">Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
-        <th>
+        <th style="color: white">
             @Html.DisplayNameFor(model => model.LoadId)
         </th>
-        <th>
+        <th style="color: white">
             @Html.DisplayNameFor(model => model.ShipperName)
         </th>
-        <th>
+        <th style="color: white">
             @Html.DisplayNameFor(model => model.ReceiverName)
         </th>
-        <th>
+        <th style="color: white ">
             @Html.DisplayNameFor(model => model.PickUpAppt)
         </th>
-        <th>
+        <th style="color: white ">
             @Html.DisplayNameFor(model => model.DeliveryAppt)
         </th>
         <th></th>
@@ -31,23 +31,23 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
+        <td style="color: white">
             @Html.DisplayFor(modelItem => item.LoadId)
         </td>
-        <td>
+        <td style="color: white ">
             @Html.DisplayFor(modelItem => item.ShipperName)
         </td>
-        <td>
+        <td style="color: white ">
             @Html.DisplayFor(modelItem => item.ReceiverName)
         </td>
-        <td>
+        <td style="color: white ">
             @Html.DisplayFor(modelItem => item.PickUpAppt)
         </td>
-        <td>
+        <td style="color: white ">
             @Html.DisplayFor(modelItem => item.DeliveryAppt)
         </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.LoadId}) |
+        <td style="color: white ">
+            @Html.ActionLink("Edit", "Edit", new { id=item.LoadId }) |
             @Html.ActionLink("Details", "Details", new { id=item.LoadId  }) |
             @Html.ActionLink("Delete", "Delete", new {  id=item.LoadId  })
         </td>

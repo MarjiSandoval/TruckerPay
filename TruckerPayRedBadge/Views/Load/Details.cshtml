@@ -4,55 +4,55 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2 style="color: white">Details</h2>
 
 <div>
-    <h4>LoadDetails</h4>
+    <h4 style="color: white">LoadDetails</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
+        <dt style="color: white">
             @Html.DisplayNameFor(model => model.LoadId)
         </dt>
 
-        <dd>
+        <dd style="color: white">
             @Html.DisplayFor(model => model.LoadId)
         </dd>
 
-        <dt>
+        <dt style="color: white">
             @Html.DisplayNameFor(model => model.ShipperName)
         </dt>
 
-        <dd>
+        <dd style="color: white">
             @Html.DisplayFor(model => model.ShipperName)
         </dd>
 
-        <dt>
+        <dt style="color: white">
             @Html.DisplayNameFor(model => model.ReceiverName)
         </dt>
 
-        <dd>
+        <dd style="color: white">
             @Html.DisplayFor(model => model.ReceiverName)
         </dd>
 
-        <dt>
+        <dt style="color: white">
             @Html.DisplayNameFor(model => model.PickUpAppt)
         </dt>
 
-        <dd>
+        <dd style="color: white">
             @Html.DisplayFor(model => model.PickUpAppt)
         </dd>
 
-        <dt>
+        <dt style="color: white">
             @Html.DisplayNameFor(model => model.DeliveryAppt)
         </dt>
 
-        <dd>
+        <dd style="color: white">
             @Html.DisplayFor(model => model.DeliveryAppt)
         </dd>
 
     </dl>
 </div>
-<p>
+<p style="color: white">
     @Html.ActionLink("Edit", "Edit", new {  id = Model.LoadId  }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

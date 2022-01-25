@@ -11,6 +11,7 @@ namespace TruckerPay.Models.Load
     {
         [Key]
         public int LoadId { get; set; }
+        public int LoadNumber { get; set; }
         [Required]
         public string ShipperName { get; set; }
         public string ShipperLocation { get; set; }

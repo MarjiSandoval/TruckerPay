@@ -57,7 +57,8 @@ namespace TruckerPay.Service
                                 PayDate = e.PayDate,
                                 StartPayWeek = e.StartPayWeek,
                                 EndPayWeek = e.EndPayWeek,
-                                TotalPay = TotalPay(e)
+                                TotalPay = TotalPay(e),
+                                TotalMiles = TotalMiles(e)
                             });
                 return query.ToArray();
             }
@@ -129,6 +130,20 @@ namespace TruckerPay.Service
             }
 
         }
+        public int TotalMiles(WeeklyPay weeklyPay)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+            List<LoadPay> pays = ctx.LoadPays.Where(l => l.SentToPayroll <= weeklyPay.EndPayWeek && l.SentToPayroll >= weeklyPay.StartPayWeek).ToList();
+            int totalMiles = 0;
+            foreach (var item in pays)
+            {
+                totalMiles += item.Load.EmptyMiles + item.Load.LoadedMiles;
+            }
+                return totalMiles;
+
+            }
+        }
         public WeeklyPayDetail GetWeeklyPayById(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -152,11 +167,11 @@ namespace TruckerPay.Service
                         DetentionPay = entity.DetentionPay,
                         Bonuses = entity.Bonuses,
                         TaxRate = entity.TaxRate,
-                        TotalMiles = entity.TotalMiles,
                         PayDate = entity.PayDate,
                         EmptyMiles = EmptyMiles(entity),
                         LoadedMiles = LoadedMiles(entity),
-                        TotalPay = TotalPay(entity)
+                        TotalPay = TotalPay(entity),
+                        TotalMiles = TotalMiles(entity)
                     };
 
             }

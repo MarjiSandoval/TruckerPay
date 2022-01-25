@@ -25,5 +25,7 @@ namespace TruckerPay.Data
         public decimal PayRateEmpty { get; set; }
         [Required]
         public DateTime SentToPayroll { get; set; }
+        public int EmptyMiles { get; set; }
+        public int LoadedMiles { get; set; }
     }
 }

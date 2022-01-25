@@ -4,26 +4,26 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2 style="color: white">Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
-        <th>
+        <th style="color: white">
             @Html.DisplayNameFor(model => model.PayDate)
         </th>
-        <th>
+        <th style="color: white">
             @Html.DisplayNameFor(model => model.StartPayWeek)
         </th>
-        <th>
+        <th style="color: white">
             @Html.DisplayNameFor(model => model.EndPayWeek)
         </th>
-        <th>
+        <th style="color: white">
             @Html.DisplayNameFor(model => model.TotalPay)
         </th>
-        <th>
+        <th style="color: white">
             @Html.DisplayNameFor(model => model.TotalMiles)
         </th>
         <th></th>
@@ -31,25 +31,25 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
+        <td style="color: white">
             @Html.DisplayFor(modelItem => item.PayDate)
         </td>
-        <td>
+        <td style="color: white">
             @Html.DisplayFor(modelItem => item.StartPayWeek)
         </td>
-        <td>
+        <td style="color: white">
             @Html.DisplayFor(modelItem => item.EndPayWeek)
         </td>
-        <td>
+        <td style="color: white">
             @Html.DisplayFor(modelItem => item.TotalPay)
         </td>
-        <td>
+        <td style="color: white">
             @Html.DisplayFor(modelItem => item.TotalMiles)
         </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new {  id=item.WeeklyPayId  }) |
-            @Html.ActionLink("Details", "Details", new {  id=item.WeeklyPayId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.WeeklyPayId  })
+        <td style="color: white">
+            @Html.ActionLink("Edit", "Edit", new { id = item.WeeklyPayId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.WeeklyPayId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.WeeklyPayId }) 
         </td>
     </tr>
 }

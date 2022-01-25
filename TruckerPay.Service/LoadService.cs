@@ -24,6 +24,7 @@ namespace TruckerPay.Service
                 new Load()
                 {
                     OwnerId= _userId,
+                    LoadNumber = model.LoadNumber,
                     ShipperName = model.ShipperName,
                     ShipperLocation = model.ShipperLocation,
                     ShipperPhone = model.ShipperPhone,
