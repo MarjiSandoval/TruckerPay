@@ -177,23 +177,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202201102158301_First migration.cs" />
-    <Compile Include="Migrations\202201102158301_First migration.Designer.cs">
-      <DependentUpon>202201102158301_First migration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202201111832359_Added ownerId.cs" />
-    <Compile Include="Migrations\202201111832359_Added ownerId.Designer.cs">
-      <DependentUpon>202201111832359_Added ownerId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202201111847289_added appt dates.cs" />
-    <Compile Include="Migrations\202201111847289_added appt dates.Designer.cs">
-      <DependentUpon>202201111847289_added appt dates.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202201111913064_update.cs" />
-    <Compile Include="Migrations\202201111913064_update.Designer.cs">
-      <DependentUpon>202201111913064_update.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -303,20 +286,6 @@
       <Project>{7de845e5-f707-447a-8296-0eabbb8bf1d9}</Project>
       <Name>TruckerPay.Service</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202201102158301_First migration.resx">
-      <DependentUpon>202201102158301_First migration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202201111832359_Added ownerId.resx">
-      <DependentUpon>202201111832359_Added ownerId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202201111847289_added appt dates.resx">
-      <DependentUpon>202201111847289_added appt dates.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202201111913064_update.resx">
-      <DependentUpon>202201111913064_update.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
